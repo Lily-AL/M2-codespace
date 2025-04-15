@@ -46,7 +46,6 @@ getFunctionReturningThe'i'thExponent = i -> (m -> (first exponents m)#i)
 firstExponent = getFunctionReturningThe'i'thExponent 0
 applyFunctionToMonomialsOfDegree'd'(firstExponent,R,3)
 
-x*y%y
 
 -* EXERCISE:
   Make a function that
@@ -71,7 +70,7 @@ MinimalMonomialsFunction=(L)-> (
             Div = Div|{L_i}
         );
     );
-    select(L, m ->not isMember(m,Div)) -- this is the return
+    select(L, m ->not isMember(m,Div)) -- this is the return without the semicolon symbol
     )
 
 
