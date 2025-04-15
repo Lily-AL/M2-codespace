@@ -79,4 +79,66 @@ R = QQ[x,y]
 L = apply(20,i->R_(apply(numgens R,i->abs random ZZ)))
 MinimalMonomialsFunction(L)
 
---another way
+--Methods Session 2 Afternoon
+
+-- methods
+f = method()
+f Matrix := A -> A - det A -- Totally separated to the definition of the function
+A = matrix{{1,2},{3,4}}
+f A -- evaluate the function
+f(Matrix,Matrix) := (A,B) -> A - B
+methods f-- extract the instances/definitions of the methods
+code 1 
+f(A,transpose A)
+
+-- methods with options
+q = method(Options => {Value=>0,First=>0,Second=>0})
+q RR := o -> x -> o.Value + o.First * x + o.Second * x^2 / 2--Take o as an argument
+q RingElement := o -> x -> o.Value + o.First * x + o.Second * x^2 / 2--Take o as an argument
+q(1.)
+q(1.,First=>2)
+q(1.5,opts)
+q(1.,Value=>sin 1, First=>cos 1, Second=>pi)
+options q
+R=QQ[x,y]
+q(x,Second=>y)
+
+-- one more implementation for an existing method
+betti
+methods betti
+code 1
+betti String := o -> s -> print "Are you looking for Betty?" 
+betti "Lily"
+betti Ideal := o -> I -> print "Are you looking for a betti table?"
+betti ideal 1
+
+-- see more details
+help "method"
+help "installMethod"
+
+-- Using a package
+needsPackage "ReesAlgebra" --loading a package
+help ReesAlgebra
+examples ReesAlgebra
+check ReesAlgebra --each time Macaulay builts something
+check_10 ReesAlgebra
+
+-- Writing packages
+help "packages"
+help "creating a package"
+help "an example of a package"
+
+-- template
+packageTemplate "MyAwesomePackage"
+"MyAwesomePackage.m2" << packageTemplate "MyAwesomePackage" << close 
+
+needsPackage "MyAwesomePackage"
+-- change `doc` to be able to load
+restart
+needsPackage "MyAwesomePackage"
+
+-- loadPackage (instead of `needsPackage`) should be used with caution
+
+-* EXERCISE:
+create your own package RandomBinomialIdeals
+*-
