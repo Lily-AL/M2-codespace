@@ -78,3 +78,5 @@ MinimalMonomialsFunction=(L)-> (
 R = QQ[x,y]
 L = apply(20,i->R_(apply(numgens R,i->abs random ZZ)))
 MinimalMonomialsFunction(L)
+
+--another way
