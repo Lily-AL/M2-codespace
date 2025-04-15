@@ -1,3 +1,4 @@
+-- Cosa importante ; al final no coloca el valor de la variable al final pero para cosas grandes no conviene por el tiempo de ejecución
 -- Defining a list
 L={1,bla,"bla"}
 
@@ -41,25 +42,27 @@ p
 )
 
 -- other solutions
-L={2}
+L2={2}
 for i from 1 to 9 do (
-    p=nextPrime(last L+1);
-    L=L|{p}
+    p=nextPrime(last L2+1);
+    L2=L2|{p}
 )
 
 -- Exercise 3: GEnerating Fibonacci numbers
-L={0,1}
-for i from 1 to 9 do L = L | {L_(-1)+L_(-2)}
-L
--- Exercise 3: GEnerating Fibonacci numbers
-L={0,1}
-for i from 1 to 9 do L = L | {L_(-1)+L_(-2)}
-L
+L3={0,1}
+for i from 1 to 9 do L3 = L3 | {L3_(-1)+L3_(-2)}
+L3
+
+-- Exercises. Create a hash table where
+-- the keys are the numbers from 1 to 10 with the corresponding values are the first 10 letters of the alphabet
+-- the keys are first 10 loadedPackages and the values are their versions
 
 -- Exercise 4: Hashable Tables 10 numbers to the 10 first letters
-L= for i from 1 to 10 list i=>ascii(65+i-1);
-H = new HashTable from L;
+L4= for i from 1 to 10 list i=>ascii(65+i-1)
+H = new HashTable from L4
+-- accesing data
+H#1
 
 -- Exercise 5: Hashable Tables 10 first loadedPackages to the 10 first loadedPackages version
-L2= for i from 1 to 10 list loadedPackages#i=>loadedPackages#i(version);
-H2 = new HashTable from L2;
+L5= for i from 1 to 10 list loadedPackages#i => ((loadedPackages#i).Options.Version)
+book2 = new HashTable from L5
