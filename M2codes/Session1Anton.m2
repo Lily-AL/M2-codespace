@@ -51,3 +51,15 @@ for i from 1 to 9 do (
 L={0,1}
 for i from 1 to 9 do L = L | {L_(-1)+L_(-2)}
 L
+-- Exercise 3: GEnerating Fibonacci numbers
+L={0,1}
+for i from 1 to 9 do L = L | {L_(-1)+L_(-2)}
+L
+
+-- Exercise 4: Hashable Tables 10 numbers to the 10 first letters
+L= for i from 1 to 10 list i=>ascii(65+i-1);
+H = new HashTable from L;
+
+-- Exercise 5: Hashable Tables 10 first loadedPackages to the 10 first loadedPackages version
+L2= for i from 1 to 10 list loadedPackages#i=>loadedPackages#i(version);
+H2 = new HashTable from L2;
