@@ -75,8 +75,5 @@ Node
     "mingens"
 ///
 
-TEST///
 check(10, randoBinomials)
-///
-
 end--
