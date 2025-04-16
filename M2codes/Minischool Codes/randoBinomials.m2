@@ -1,7 +1,7 @@
  -- -*- coding: utf-8 -*-  
 
 newPackage(
-  "randoBinomials",
+  "FirstLilyAttempt",
   Version => "1.1",
   Date => "March 15, 2025",
   Authors => {{Name => "Lily AL", Email => "lilia.alanislpz@tec.mx", HomePage => "https://sites.google.com/tec.mx/liliaalanislopez/"}},
@@ -16,13 +16,14 @@ randoBinomials = method(TypicalValue => Ideal)
 
 randoBinomials (ZZ,List) := Ideal => (m, B) -> (
   n=length B;
-  Gen={};
-  while (length Gen) < 2*m  do(
+  R={};
+  while (length R) < 2*m  do(
     L = random toList(0 .. n-1);
-    Gen = Gen | {B_(L_0)-B_(L_1),B_(L_1)-B_(L_0)};
-    Gen = toList set Gen;
+    R = R | {B_(L_0)-B_(L_1),B_(L_1)-B_(L_0)};
+    B1 = set R;
+    R = toList B1;
   );
-  ideal Gen
+  ideal R
 )
 
 beginDocumentation()
