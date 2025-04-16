@@ -3,7 +3,7 @@
 newPackage(
   "FirstLilyAttempt",
   Version => "1.1",
-  Date => "March 15, 2025",
+  Date => "April 15, 2025",
   Authors => {{Name => "Lily AL", Email => "lilia.alanislpz@tec.mx", HomePage => "https://sites.google.com/tec.mx/liliaalanislopez/"}},
   Headline => "an example Macaulay2 package assignment in Workshop 2025 at Tulane University",
   Keywords => {"Documentation"},
