@@ -63,9 +63,9 @@ Node
       randoBinomials(4, B)    
 
   Acknowledgement
-    Acknowledge funding housing for the workshop.
+    Acknowledge Tulane University for funding housing for the workshop.
   Contributors
-    Acknowledge Mike and Anton for their patience.
+    Acknowledge Mike and Anton for their ALL their patience and time.
   References
     Provide references for further reading.
   Caveat
