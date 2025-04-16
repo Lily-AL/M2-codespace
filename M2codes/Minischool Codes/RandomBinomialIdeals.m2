@@ -1,65 +1,83 @@
+ -- -*- coding: utf-8 -*-  
 
-  -----------------------------------------------------------------------------------------------------------+
-    newPackage(                                                                                                 |
-         "FirstPackage",                                                                                         |
-        Version => "0.1",                                                                                       |
-        Date => "August 5, 2012",                                                                               |
-        Authors => {                                                                                            |
-                {Name => "Lily", Email => "doe@math.uiuc.edu", HomePage => "http://www.math.uiuc.edu/~doe/"}},  |
-            Headline => "Random Binmial",                                                             |
-            Keywords => {"Documentation"},                                                                          |
-            DebuggingMode => false                                                                                  |
-            )                                                                                                       |
-                                                                                                                    |
-        export {"RandomBinomialsIdeal"}                                                                                    |
-                                                                                                                    |
-        firstFunction = method(TypicalValue => String)                                                              |
-        firstFunction ZZ := String => n -> if n == 1 then "Hello World!" else "D'oh!"                               |
-                                                                                                                    |
-        beginDocumentation()                                                                                        |
-                                                                                                                    |
-      doc ///                                                                                                     |
-       Node                                                                                                       |
-        Key 
-          RandomBinomialsIdeal                                                                                                      |
-           FirstPackage                                                                                             |
-          Headline                                                                                                  |
-             an example Macaulay2 package                                                                           |
-           Description                                                                                               |
-           Text                                                                                                     |
-            {\em FirstPackage} is a basic package to be used as an example.                                         |
-          Caveat                                                                                                    |
-            Still trying to figure this out.                                                                        |
-          Subnodes                                                                                                  |
-            firstFunction                                                                                           |
-         Node                                                                                                       |
-          Key                                                                                                       |
-           (firstFunction,ZZ)                                                                                       |
-           firstFunction                                                                                            |
-          Headline                                                                                                  |
-           a silly first function                                                                                   |
-          Usage                                                                                                     |
-           firstFunction n                                                                                          |
-          Inputs                                                                                                    |
-           n:                                                                                                       |
-          Outputs                                                                                                   |
-           :                                                                                                        |
-            a silly string, depending on the value of {\tt n}                                                       |
-          Description                                                                                               |
-           Text                                                                                                     |
-            Here we show an example.                                                                                |
-           Example                                                                                                  |
-            firstFunction 1                                                                                         |
-            firstFunction 0                                                                                         |
-        ///                                                                                                         |
-                                                                                                                    |
-        TEST ///                                                                                                    |
-            assert ( firstFunction 2 == "D'oh!" )                                                                   |
-        ///                                                                                                         |
-                                                                                                                    |
-        end --                                                                                                       |
-                                                                                                                    |
-      |  You can write anything you want down here.  I like to keep examples                                         |
-      |  as I’m developing here.  Clean it up before submitting for                                                  |
-      |  publication.  If you don't want to do that, you can omit the "end"                                          |
-      |  above. 
+newPackage(
+  "LilyPackage",
+  Version => "1.1",
+  Date => "March 15, 2025",
+  Authors => {{Name => "Lily AL", Email => "lilia.alanislpz@tec.mx", HomePage => "https://sites.google.com/tec.mx/liliaalanislopez/"}},
+  Headline => "an example Macaulay2 package assignment in Workshop 2025 at Tulane University",
+  Keywords => {"Documentation"},
+  DebuggingMode => false
+ )
+
+export{"randoBinomials"}
+
+randoBinomials = method(TypicalValue => Ideal)
+
+randoBinomials (ZZ,List) := Ideal => (m, B) -> (
+  n=length B;
+  R={};
+  while (length R) < 2*m  do(
+    L = random toList(0 .. n-1);
+    R = R | {B_(L_0)-B_(L_1),B_(L_1)-B_(L_0)};
+    B1 = set R;
+    R = toList B1;
+  );
+  ideal R
+)
+
+beginDocumentation()
+
+doc///
+Node
+  Key 
+    randoBinomials
+    (randoBinomials, ZZ, List)
+
+  Headline
+    an example Macaulay2 package assignment in Workshop 2025 at Tulane University
+
+  Usage
+    I=randoBinomials(m, B)
+
+  Inputs
+    m:ZZ       -- positive
+    B:List     -- which are monomials of certain homogeneous degree
+
+  Outputs
+    I:Ideal
+      An ideal generated with {\tt m} different diferences between monomials
+      in {\tt B}.
+
+  Consequences
+   Item
+    The first side effect of the function, if any, is described here.
+
+  Description
+    Text
+      This package provides a function that takes a list of monomials of a certain degree and
+      generates an Ideal generated with {\tt m} different binomials in {\tt R}.
+
+    Example
+      R = ZZ/101[a..d];
+      B = flatten entries basis(3, R);
+      randoBinomials(4, B)    
+
+  Acknowledgement
+    Acknowledge funding housing for the workshop.
+  Contributors
+    Acknowledge Mike and Anton for their patience.
+  References
+    Provide references for further reading.
+  Caveat
+    This is not a particularly useful function.
+  SeeAlso
+    "trim"
+    "mingens"
+///
+
+TEST///
+check(10, randoBinomials)
+///
+
+end--
