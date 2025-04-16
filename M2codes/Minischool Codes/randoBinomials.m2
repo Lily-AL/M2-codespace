@@ -7,7 +7,8 @@ newPackage(
   Authors => {{Name => "Lily AL", Email => "lilia.alanislpz@tec.mx", HomePage => "https://sites.google.com/tec.mx/liliaalanislopez/"}},
   Headline => "an example Macaulay2 package assignment in Workshop 2025 at Tulane University",
   Keywords => {"Documentation"},
-  DebuggingMode => false
+  DebuggingMode => false,
+  AuxiliaryFiles => false
  )
 
 export{"randoBinomials"}
@@ -30,8 +31,7 @@ beginDocumentation()
 doc///
 Node
   Key 
-    randoBinomials
-    (randoBinomials, ZZ, List)
+    FirstLilyAttempt
 
   Headline
     an example Macaulay2 package assignment in Workshop 2025 at Tulane University
@@ -45,12 +45,12 @@ Node
 
   Outputs
     I:Ideal
-      An ideal generated with {\tt m} different diferences between monomials
+      An ideal generated with {\tt m} different binomials
       in {\tt B}.
 
   Consequences
    Item
-    The first side effect of the function, if any, is described here.
+    The first side effect of the function, is a randomized ideal.
 
   Description
     Text
@@ -74,6 +74,14 @@ Node
     "trim"
     "mingens"
 ///
-
-check(10, randoBinomials)
+-*Test Section*-
 end--
+restart
+debug needsPackage "randoBinomials"
+check "randoBinomials"
+
+-*Development Section*-
+
+uninstallPackage "randoBinomials"
+restart
+installPackage "randoBinomials"
