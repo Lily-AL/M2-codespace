@@ -16,14 +16,13 @@ randoBinomials = method(TypicalValue => Ideal)
 
 randoBinomials (ZZ,List) := Ideal => (m, B) -> (
   n=length B;
-  R={};
-  while (length R) < 2*m  do(
+  Gen={};
+  while (length Gen) < 2*m  do(
     L = random toList(0 .. n-1);
-    R = R | {B_(L_0)-B_(L_1),B_(L_1)-B_(L_0)};
-    B1 = set R;
-    R = toList B1;
+    Gen = Gen | {B_(L_0)-B_(L_1),B_(L_1)-B_(L_0)};
+    Gen = toList set Gen;
   );
-  ideal R
+  ideal Gen
 )
 
 beginDocumentation()

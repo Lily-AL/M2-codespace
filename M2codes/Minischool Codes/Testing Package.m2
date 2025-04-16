@@ -1,1 +1,1 @@
-loadPackage "RandoBinomialIdeals"
+loadPackage "randoBinomials"
