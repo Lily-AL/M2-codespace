@@ -22,7 +22,7 @@ randoBinomials (ZZ,List) := Ideal => (m, B) -> (
     Gen = Gen | {B_(L_0)-B_(L_1),B_(L_1)-B_(L_0)};
     Gen = toList set Gen;
   );
-  ideal Gen
+  trim ideal Gen
 )
 
 beginDocumentation()
