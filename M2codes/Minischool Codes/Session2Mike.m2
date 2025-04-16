@@ -179,7 +179,8 @@ gens image m
 --   )
 -- extra credit: check that all the elements of B are monomials all in the same ring.
 
-randoBinomials = (m, B) -> (
+randoBinomials = method(TypycalValue=>Ideal)
+randoBinomials (ZZ,List) := Ideal => (m, B) -> (
   n=length B;
   R={};
   while (length R) < 2*m  do(
