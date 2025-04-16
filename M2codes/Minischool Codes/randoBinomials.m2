@@ -2,7 +2,7 @@
 
 newPackage(
   "FirstLilyAttempt",
-  Version => "1.1",
+  Version => "0.0",
   Date => "April 15, 2025",
   Authors => {{Name => "Lily AL", Email => "lilia.alanislpz@tec.mx", HomePage => "https://sites.google.com/tec.mx/liliaalanislopez/"}},
   Headline => "an example Macaulay2 package assignment in Workshop 2025 at Tulane University",
@@ -16,10 +16,10 @@ export{"randoBinomials"}
 randoBinomials = method(TypicalValue => Ideal)
 
 randoBinomials (ZZ,List) := Ideal => (m, B) -> (
-  n=length B;
-  Gen={};
+  n:=length B;
+  Gen:={};
   while (length Gen) < 2*m  do(
-    L = random toList(0 .. n-1);
+    L := random toList(0 .. n-1);
     Gen = Gen | {B_(L_0)-B_(L_1),B_(L_1)-B_(L_0)};
     Gen = toList set Gen;
   );
