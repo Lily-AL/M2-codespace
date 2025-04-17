@@ -21,6 +21,7 @@ IsListSp = (I,n) -> (
 
 --Generate, if posible, the list of special monomials
 ListSpMon=(n,d)->(
+    if d>(.5*n*(n-1)) then return "There are no special monomials with that degree";
     R:=QQ[x_1..x_n];
    L:=partitions d;
    M:={};
@@ -29,6 +30,7 @@ ListSpMon=(n,d)->(
 )
 --Test
 ListSpMon(4,1)
+ListSpMon(4,8)
 ListSpMon(7,8)
 ListSpMon(27,8)
 
@@ -100,7 +102,7 @@ orbSumList(G,4,3)
         for i from 1 to n do( L = L | { orbSum((SPoly(i,n)),G,n)});
         toList(set L)
     )
-    OrbSumSi(4,G)
 
+    OrbSumSi(4,G)
 
 
