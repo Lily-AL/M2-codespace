@@ -99,7 +99,7 @@ orbSumList(G,4,3)
         for i from 1 to n do(
          L = L | { orbSum( SPoly(i),G,n)};
         );
-        L
+        toList(set L)
     )
 
 
