@@ -1,0 +1,17 @@
+-- other attempt Generate special Monomials of degree at most d
+ListSpMon2=(d,n)->(
+R:=QQ[x_1..x_n];
+SpI:={{{0},0}};
+Aux:={};
+m:=1;
+while m<n+1 do(
+    for i from 1 to #SpI do(
+        if (SpI_i)_2<=d then(
+            Aux=Aux |
+        )
+    );
+    m=m+1
+)
+
+    
+)
