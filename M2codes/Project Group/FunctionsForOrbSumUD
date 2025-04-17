@@ -71,3 +71,5 @@ orbSumList=(G,n,d)->(
         );
         toList(set L)
 ) 
+
+--Testing if we get the same subring
