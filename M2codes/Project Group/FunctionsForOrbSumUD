@@ -1,4 +1,4 @@
--- other attempt Generate special Monomials of degree at most d
+
 -- other attempt: Generate special Monomials of degree at most d in a constructive way
 needsPackage "SRdeformations"
 
