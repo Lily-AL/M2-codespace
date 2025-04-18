@@ -23,7 +23,15 @@ ListSpInd=(n,d)->(
     SpI   
 )
 --Test
+ListSpInd(2,6)
+ListSpMon(2,6)
 ListSpInd(6,4)
+ListSpMon(4,1)
+ListSpMon(4,6)
+ListSpMon(4,8)
+ListSpMon(7,8)
+ListSpMon(8,27)
+
 
 -- Shuffle every monomial
 ShuffMon=(f,n)->(
@@ -40,14 +48,17 @@ ShuffMon=(f,n)->(
 ListSpMon=(n,d)->(
     d=min {d,n*(n-1)//2};
     R:=QQ[x_1..x_n];
-    SpI:=ListSpInd(d,n);
+    SpI:=ListSpInd(n,d);
     SpMon:={};
-    for i from 0 to (#SpI - 1) do(SpMon = (SpMon| ShuffMon(vectorToMonomial( vector (SpI_i) , R  ) ,n)));
-    SpMon
+    for i from 0 to (#SpI - 1) do(SpMon = SpMon| ShuffMon(vectorToMonomial( vector (SpI_i) , R  ) ,n));
+    toList set SpMon
 )
 
 --Test
-ListSpMon(4,6)
+ListSpInd(2,6)
+ListSpMon(2,6)
+(ListSpMon(4,6))_0
+(ListSpMon(4,6))_11
 
 --Orbit Sum for one monomial
 orbSum = (f,G,n) ->(
